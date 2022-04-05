@@ -19,10 +19,6 @@ const { menus, currentKey, click } = userMenu()
 </script>
 
 <style  scoped>
-.el-scrollbar__wrap {
-    overflow: auto;
-    height: 100%;
-}
 .menu{
     padding: 0 1.5rem;
     margin-top: 2.5rem;
@@ -35,23 +31,25 @@ const { menus, currentKey, click } = userMenu()
 .menu-item{
     display: flex;
     cursor: pointer;
-    align-items: center;
+    align-items: center !important;
+    margin-top: 0.3rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.375rem;
     padding-bottom: 0.375rem;
-    font-size: 1rem;
-    line-height: 1.35rem;
+    font-size: 1.025rem;
+    line-height: 0.25rem;
 }
 .menu-item:hover{
 	box-sizing: border-box;
     border-width: 0;
-    background: var(--el-text-color-secondary);
+    background: rgb(229 231 235);
     border-style: solid;
     border-color: #e5e7eb;
     border-radius: 0.25rem;
 }
 .m1{
+    display: block;
     margin-left: 0.25rem;
 }
 </style>
