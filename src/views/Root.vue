@@ -7,8 +7,7 @@
 			<Header />
 			<div class="content">
 				<el-scrollbar>
-					<!-- <router-view /> -->
-					<div v-for="(v,i) in 100" :key="i">{{v}}</div>
+					<router-view />
 				</el-scrollbar>
 			</div>
 			<Footer />

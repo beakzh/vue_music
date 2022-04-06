@@ -19,37 +19,42 @@ const { menus, currentKey, click } = userMenu()
 </script>
 
 <style  scoped>
-.menu{
-    padding: 0 1.5rem;
-    margin-top: 2.5rem;
+.menu {
+	padding: 0 1.5rem;
+	margin-top: 2.5rem;
 }
-.menu-title{
-    padding:0 1rem 0.5rem 1rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
+.menu-title {
+	padding: 0 1rem 0.5rem 1rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
 }
-.menu-item{
-    display: flex;
-    cursor: pointer;
-    align-items: center !important;
-    margin-top: 0.3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
-    font-size: 1.025rem;
-    line-height: 0.25rem;
+.menu-item {
+	display: flex;
+	cursor: pointer;
+	align-items: center !important;
+	margin-top: 0.3rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	font-size: 1.025rem;
+	line-height: 0.25rem;
 }
-.menu-item:hover{
+.menu-item:hover {
 	box-sizing: border-box;
-    border-width: 0;
-    background: rgb(229 231 235);
-    border-style: solid;
-    border-color: #e5e7eb;
-    border-radius: 0.25rem;
+	border-width: 0;
+	background: rgb(229 231 235);
+	border-style: solid;
+	border-color: #e5e7eb;
+	border-radius: 0.25rem;
 }
-.m1{
-    display: block;
-    margin-left: 0.25rem;
+.m1 {
+	display: block;
+	margin-left: 0.25rem;
+}
+.active {
+	background-color: #2dd4bf !important;
+	border-radius: 0.25rem;
+	color: rgb(248 250 252) !important;
 }
 </style>
