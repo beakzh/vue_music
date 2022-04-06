@@ -4,17 +4,14 @@
 			<Menu />
 		</div>
 		<div class="main">
-			<div>
-				<Header />
-			</div>
-			<div>
+			<Header />
+			<div class="content">
 				<el-scrollbar>
-					<router-view />
+					<!-- <router-view /> -->
+					<div v-for="(v,i) in 100" :key="i">{{v}}</div>
 				</el-scrollbar>
 			</div>
-			<div class="footer">
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	</div>
 </template>
@@ -40,19 +37,22 @@ import Footer from '@/components/layout/footer/Footer.vue'
 }
 .main {
 	display: flex;
-    position: relative;
 	width: 100%;
+	height: 100%;
 	flex-direction: column;
-	justify-items: center;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
-	padding-bottom: 6rem;
 }
-.footer{
-    position: fixed;
-    bottom: 0;
-    left: 16rem;
-    height: 6rem;
-    width: 100%;
+.content{
+	flex: 1 1 0%;
+	overflow: hidden;
+}
+:deep(.el-scroller){
+	height: 100%;
+	overflow: hidden;
+}
+:deep(.el-scrollbar__wrap){
+	overflow: auto;
+    height: 100%;
 }
 </style>
