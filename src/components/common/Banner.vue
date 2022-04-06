@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
+import 'swiper/swiper.min.css'
 
 defineProps({
 	banners: Array,
@@ -16,6 +16,11 @@ defineProps({
 </script>
 
 <style scoped>
+.swiper .swiper-slide {
+	width: 32%;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
 .banner-image {
 	cursor: pointer;
 	border-radius: 0.5rem;

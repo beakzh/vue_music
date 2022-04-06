@@ -1,6 +1,6 @@
 import http from './http'
 
 export async function useBanner() {
-	const { banners } = await http.get('/banner', { type: 1 })
+	const  banners  = (await http.get('/banner', { type: 1 })).data.banners
 	return banners
 }

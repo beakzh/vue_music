@@ -7,7 +7,9 @@
 			<Header />
 			<div class="content">
 				<el-scrollbar>
-					<router-view />
+					<suspense>
+						<router-view />
+					</suspense>
 				</el-scrollbar>
 			</div>
 			<Footer />
@@ -42,16 +44,16 @@ import Footer from '@/components/layout/footer/Footer.vue'
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
 }
-.content{
+.content {
 	flex: 1 1 0%;
 	overflow: hidden;
 }
-:deep(.el-scroller){
+:deep(.el-scroller) {
 	height: 100%;
 	overflow: hidden;
 }
-:deep(.el-scrollbar__wrap){
+:deep(.el-scrollbar__wrap) {
 	overflow: auto;
-    height: 100%;
+	height: 100%;
 }
 </style>
