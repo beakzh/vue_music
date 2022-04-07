@@ -1,6 +1,6 @@
 <template>
-	<Swiper slides-per-group-auto slides-per-view="auto" :space-between="10" :navigation="true" :grab-cursor="true">
-		<SwiperSlide v-for="v in banners" :key="v.id">
+	<Swiper slides-per-group-auto slides-per-view="auto" :navigation="true" :grab-cursor="true">
+		<SwiperSlide v-for="v in banners" :key="v.bannerId">
 			<img :src="v.pic" class="banner-image">
 		</SwiperSlide>
 	</Swiper>
@@ -16,6 +16,15 @@ defineProps({
 </script>
 
 <style scoped>
+.swiper{
+	margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
 .swiper-wrapper {
 	position: relative;
 	width: 100%;
@@ -26,7 +35,17 @@ defineProps({
 	transition-property: transform;
 	box-sizing: content-box;
 }
-
+.swiper .swiper-slide {
+	padding-left: 0.625rem;
+    padding-right: 0.625rem;
+}
+.swiper-slide {
+	flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
 @media (min-width: 1024px) {
 	.swiper .swiper-slide {
 		width: 50%;

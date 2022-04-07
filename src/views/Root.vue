@@ -32,8 +32,8 @@ import Footer from '@/components/layout/footer/Footer.vue'
 	align-items: stretch;
 }
 .aside {
-	width: 16rem;
-	min-width: 16rem;
+	width: 15.5rem;
+	min-width: 15.5rem;
 	background-color: rgb(249 250 251);
 }
 .main {
@@ -41,12 +41,12 @@ import Footer from '@/components/layout/footer/Footer.vue'
 	width: 100%;
 	height: 100%;
 	flex-direction: column;
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
 }
 .content {
 	flex: 1 1 0%;
 	overflow: hidden;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
 }
 :deep(.el-scroller) {
 	height: 100%;
@@ -55,5 +55,30 @@ import Footer from '@/components/layout/footer/Footer.vue'
 :deep(.el-scrollbar__wrap) {
 	overflow: auto;
 	height: 100%;
+}
+@media (min-width: 640px) {
+	.container {
+		max-width: 640px;
+	}
+}
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+@media (min-width: 1024px) {
+	.container {
+		max-width: 1024px;
+	}
+}
+@media (min-width: 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+}
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
 </style>

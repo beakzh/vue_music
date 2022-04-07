@@ -29,11 +29,13 @@ header {
 	height: 3.5rem;
 	align-items: center;
 	justify-content: space-between;
+	
 }
 .flex-1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding-left: 1.25rem;
 }
 .flex-2 {
 	display: flex;

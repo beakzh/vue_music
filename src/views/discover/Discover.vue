@@ -19,8 +19,8 @@ await get()
 </script>
 
 <style scoped>
-.discover {
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
+.discover{
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
