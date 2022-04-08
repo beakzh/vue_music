@@ -1,7 +1,7 @@
 <template>
-	<div class="menu">
+	<aside class="menu">
 		<MenuList />
-	</div>
+	</aside>
 </template>
 
 <script setup>

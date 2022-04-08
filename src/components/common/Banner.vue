@@ -17,8 +17,7 @@ defineProps({
 
 <style scoped>
 .swiper{
-	margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
     list-style: none;
@@ -70,9 +69,5 @@ defineProps({
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
-}
-img {
-	max-width: 100%;
-	height: auto;
 }
 </style>

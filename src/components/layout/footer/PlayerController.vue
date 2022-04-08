@@ -4,7 +4,7 @@
 		<IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" />
 		<IconPark :icon="PauseOne" size="45" theme="filled" class="hover-text btn-text" />
 		<IconPark :icon="GoEnd" size="28" class="hover-text" />
-		<el-popover placement="top" :width="50">
+		<el-popover placement="top" :width="50" popper-class="popperOptions">
 			<template #reference>
 				<IconPark :icon="VolumeSmall" size="20" :stroke-width="3" class="hover-text" />
 			</template>

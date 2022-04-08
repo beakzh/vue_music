@@ -1,12 +1,12 @@
 <template>
-	<div class="foot">
+	<footer>
 		<PlayerSlider />
 		<div class="player">
 			<PlayerSong />
 			<PlayerController />
 			<PlayerAction />
 		</div>
-	</div>
+	</footer>
 </template>
 
 <script setup>
@@ -17,7 +17,7 @@ import PlayerAction from './PlayerAction.vue'
 </script>
 
 <style scoped>
-.foot{
+footer{
 	padding-bottom: 0.5rem;
 }
 .player {

@@ -8,7 +8,9 @@
 			<div class="content">
 				<el-scrollbar>
 					<suspense>
-						<router-view />
+						<div class="container mx-auto">
+							<router-view />
+						</div>
 					</suspense>
 				</el-scrollbar>
 			</div>
@@ -43,6 +45,7 @@ import Footer from '@/components/layout/footer/Footer.vue'
 	flex-direction: column;
 }
 .content {
+	box-sizing: border-box;
 	flex: 1 1 0%;
 	overflow: hidden;
 	padding-left: 1.25rem;
@@ -76,9 +79,9 @@ import Footer from '@/components/layout/footer/Footer.vue'
 		max-width: 1280px;
 	}
 }
-.container {
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
+@media (min-width: 1536px) {
+	.container {
+		max-width: 1536px;
+	}
 }
 </style>

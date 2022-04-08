@@ -13,14 +13,12 @@ import { useBanner } from '@/utils/api'
 let banners = ref()
 async function get() {
 	banners.value = await useBanner()
-	console.log(banners.value)
 }
 await get()
 </script>
 
 <style scoped>
-.discover{
-	margin-left: auto;
-	margin-right: auto;
+h1 {
+	padding-left: 0.625rem;
 }
 </style>

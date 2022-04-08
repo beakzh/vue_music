@@ -41,6 +41,7 @@ header {
 	display: flex;
 	align-items: center;
 	line-height: 0.5rem;
+	padding-right: 1.25rem;
 }
 .icon-button {
 	cursor: pointer;
