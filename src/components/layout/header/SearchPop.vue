@@ -3,7 +3,7 @@
 		:width="250">
 		<template #reference>
 			<el-input v-model="keywords" @input="searchMusic" @focus="showSearchView=true"
-				@focusout="showSearchView=true" placeholder="搜索音乐、MV、歌单" :prefix-icon="Search" clearable />
+				@focusout="showSearchView=false" placeholder="搜索音乐、MV、歌单" :prefix-icon="Search" clearable />
 		</template>
 		<el-scrollbar height="400px">
 			<div v-if="!keywords">

@@ -23,3 +23,9 @@ export async function useBanner() {
 	const banners = (await http.get('/banner', { type: 1 })).data.banners
 	return banners
 }
+
+// 你的专属歌单
+export async function usePersonalized() {
+    const result = (await http.get('/personalized')).data.result
+    return result
+}

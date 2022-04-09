@@ -49,7 +49,6 @@ import Footer from '@/components/layout/footer/Footer.vue'
 	flex: 1 1 0%;
 	overflow: hidden;
 	padding-left: 1.25rem;
-	padding-right: 1.25rem;
 }
 :deep(.el-scroller) {
 	height: 100%;
