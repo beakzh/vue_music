@@ -10,8 +10,8 @@ export async function useSearchHotDetail() {
 	return data
 }
 export async function useSearchSuggest(keywords) {
-    const result = (await http.get('search/suggest', {keywords})).data.result
-    return result
+	const result = (await http.get('search/suggest', { keywords })).data.result
+	return result
 }
 
 /*
@@ -26,6 +26,18 @@ export async function useBanner() {
 
 // 你的专属歌单
 export async function usePersonalized() {
-    const result = (await http.get('/personalized')).data.result
-    return result
+	const result = (await http.get('/personalized')).data.result
+	return result
+}
+
+// 推荐新音乐
+export async function usePersonalizedNewSong() {
+	const result = (await http.get('/personalized/newsong')).data.result
+	return result
+}
+
+//推荐MV
+export async function usePersonalizedMv() {
+	const result = (await http.get('personalized/mv')).data.result
+	return result
 }

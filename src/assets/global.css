@@ -16,6 +16,24 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+/* 
+    推荐页全局样式
+*/
+.songdetail {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem 0;
+}
+.song-text {
+	font-size: 0.75rem;
+}
+.song-white {
+	color: rgb(148 163 184);
+}
+
+/* 
+    element-plus样式
+*/
 .el-popover.popperOption{
 	padding: unset !important;
 }

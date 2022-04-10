@@ -37,7 +37,7 @@ let showCount = ref(true)
 }
 .cover-play-image:hover {
 	transform: translateY(-8px);
-}
+} 
 .el-image {
 	border-radius: 0.5rem;
 }
