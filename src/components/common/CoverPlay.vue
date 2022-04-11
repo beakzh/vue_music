@@ -1,5 +1,6 @@
 <template>
-	<div class="cover-play-image" @mouseenter="showCount = false" @mouseleave="showCount = true">
+	<div class="cover-play-image" :class="{'aspect-square':!video ,'aspect-video':video}"
+		@mouseenter="showCount = false" @mouseleave="showCount = true">
 		<el-image :src="picUrl" :alt="name" />
 		<div v-if="!showCount" class="mask">
 			<IconPark :icon="PlayOne" theme="filled" size="50" class="hover-text" />
@@ -37,7 +38,7 @@ let showCount = ref(true)
 }
 .cover-play-image:hover {
 	transform: translateY(-8px);
-} 
+}
 .el-image {
 	border-radius: 0.5rem;
 }

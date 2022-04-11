@@ -30,6 +30,13 @@ img {
 .song-white {
 	color: rgb(148 163 184);
 }
+.aspect-video{
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5rem;
+}
+.aspect-square{
+    aspect-ratio: 1 / 1;
+}
 
 /* 
     element-plus样式
