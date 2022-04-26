@@ -1,6 +1,7 @@
 <template>
 	<div class="controller">
-		<IconPark :icon="PlayOnce" size="20" :stroke-width="3" class="hover-text" />
+		<IconPark :icon="loopType==0?PlayOnce:loopType==1?LoopOnce:ShuffleOne" size="20" :stroke-width="3"
+			class="hover-text" @click="toggleLoop" />
 		<IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" />
 		<IconPark :icon="PauseOne" size="45" theme="filled" class="hover-text btn-text" />
 		<IconPark :icon="GoEnd" size="28" class="hover-text" />
@@ -14,9 +15,24 @@
 </template>
 
 <script setup>
-import { Play, PauseOne, LoopOnce, ShuffleOne, PlayOnce, GoEnd, GoStart, VolumeSmall } from '@icon-park/vue-next'
+import {
+	Play,
+	PauseOne,
+	LoopOnce,
+	ShuffleOne,
+	PlayOnce,
+	GoEnd,
+	GoStart,
+	VolumeSmall,
+} from '@icon-park/vue-next'
 import IconPark from '@/components/common/IconPark.vue'
 import PlayerVolumneSlider from './PlayerVolumeSlider.vue'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+
+let store = useStore()
+let loopType = computed(_ => store.state.player.loopType)
+let toggleLoop = _ => store.commit('player/toggleLoop')
 </script>
 
 <style scoped>

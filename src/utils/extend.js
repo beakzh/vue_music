@@ -1,6 +1,9 @@
 import { useNumberFormat } from './number'
-import { sampleSize } from 'lodash'
+import { first, sampleSize } from 'lodash'
 
+Array.prototype.first = function () {
+	return first(this)
+}
 Array.prototype.sampleSize = function (size) {
 	return sampleSize(this, size)
 }

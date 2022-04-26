@@ -6,7 +6,7 @@
 }
 .hover-text:hover {
 	cursor: pointer;
-	color: #2dd4bf;
+	color: #2dd4bf !important;
 }
 img {
 	max-width: 100%;

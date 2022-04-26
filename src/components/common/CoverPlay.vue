@@ -2,7 +2,7 @@
 	<div class="cover-play-image" :class="{'aspect-square':!video ,'aspect-video':video}"
 		@mouseenter="showCount = false" @mouseleave="showCount = true">
 		<el-image :src="picUrl" :alt="name" />
-		<div v-if="!showCount" class="mask">
+		<div v-if="!showCount" class="mask" :class="{'aspect-square':!video ,'aspect-video':video}">
 			<IconPark :icon="PlayOne" theme="filled" size="50" class="hover-text" />
 		</div>
 		<div v-if="showCount" class="play-count">

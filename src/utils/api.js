@@ -14,6 +14,14 @@ export async function useSearchSuggest(keywords) {
 	return result
 }
 
+/* 
+	音乐播放
+*/
+export async function useSongUrl(id) {
+	const { data } = await http.get('/song/url', { id })
+	return data.first()
+}
+
 /*
     discover请求
 */
