@@ -1,3 +1,5 @@
+import { useSongUrl, useDetail } from '@/utils/api'
+
 const KEYS = {
 	volume: 'PLAYER-VOLUME',
 }
@@ -23,6 +25,9 @@ const player = {
 		duration: 0, //总播放时长
 	},
 	mutations: {
+		init(state) {
+			state.audio.volume = state.volume / 100
+		},
 		changList(state) {
 			state.showPlayList = !state.showPlayList
 		},
@@ -40,9 +45,52 @@ const player = {
 		onSliderInput(state) {
 			state.sliderInput = true
 		},
+		//播放暂停
+		togglePlay(state) {
+			if (!state.id) return
+			state.isPlaying = !state.isPlaying
+			if (state.isPlaying) {
+				state.audio.play()
+				state.isPause = false
+			} else {
+				state.isPause = true
+				state.audio.pause()
+			}
+		},
+		playEnd() {},
+		//定时器
+		interval(state) {
+			if (state.isPlaying && !state.sliderInput) {
+				state.duration = +state.audio.duration.toString()
+				state.currentTime = +state.audio.currentTime.toString()
+				state.ended = state.audio.ended
+			}
+		},
 	},
 	actions: {
-		play(ctx, v) {},
+		// 歌曲播放
+		async play(ctx, id) {
+			if (ctx.state.id == id) return
+			let song = await useSongUrl(id)
+			console.log(song)
+			ctx.state.audio.src = song.url
+			ctx.state.isPlaying = false
+			ctx.state.audio
+				.play()
+				.then(_ => {
+					ctx.state.isPlaying = true
+					ctx.state.id = song.id
+					ctx.state.songUrl = song
+					ctx.state.url = song.url
+					ctx.dispatch('songDetail')
+				})
+				.catch(e => console.log(e))
+		},
+		// 歌曲详情
+		async songDetail(ctx) {
+			ctx.state.song = await useDetail(ctx.state.id)
+			console.log(ctx.state.song)
+		},
 	},
 }
 export default player

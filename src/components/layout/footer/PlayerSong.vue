@@ -1,10 +1,11 @@
 <template>
 	<div class="song">
-		<img :src="OpticalDisk" alt="">
+		<img :src="song.al?.picUrl || OpticalDisk" alt="">
 		<section>
 			<div class="flex-1">
-				<span>开源云音乐</span>
-				<span> - SmallRuralDog</span>
+				<div v-if="songUrl.freeTrialInfo?.end > 0">试听</div>
+				<span>{{song.name || '开源云音乐'}}</span>
+				<span> - {{ song.ar?.first().name || 'SmallRuralDog' }}</span>
 			</div>
 			<div class="flex-2">
 				<IconPark :icon="Like" size="18" :stroke-width="3" class="hover-text" />
@@ -22,6 +23,12 @@
 import { OpticalDisk } from '@/assets/img'
 import IconPark from '@/components/common/IconPark.vue'
 import { Like, DownTwo, MoreTwo, Comment } from '@icon-park/vue-next'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+let store = useStore()
+let song = computed(_ => store.state.player.song)
+let songUrl = computed(_ => store.state.player.songUrl)
 </script>
 
 <style scoped>

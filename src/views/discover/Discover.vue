@@ -25,7 +25,6 @@ async function get() {
 	personalized.value = await usePersonalized()
 	personalizedNewSong.value = await usePersonalizedNewSong()
 	personalizedMv.value = await usePersonalizedMv()
-	console.log(personalizedMv.value)
 }
 await get()
 </script>

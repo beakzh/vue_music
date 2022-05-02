@@ -18,10 +18,13 @@ export async function useSearchSuggest(keywords) {
 	音乐播放
 */
 export async function useSongUrl(id) {
-	const { data } = await http.get('/song/url', { id })
+	const data = (await http.get('/song/url', { id })).data.data
 	return data.first()
 }
-
+export async function useDetail(id) {
+	const { songs } = (await http.get('/song/detail', { ids: id })).data
+	return songs.first()
+}
 /*
     discover请求
 */

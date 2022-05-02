@@ -1,7 +1,7 @@
 <template>
 	<Title title="推荐新音乐" />
 	<div class="newsong">
-		<div v-for="v in personalizedNewSong" :key="v.id" class="songs">
+		<div v-for="v in personalizedNewSong" :key="v.id" class="songs" @click="playSong(v.id)">
 			<img :src="v.picUrl" class="pic">
 			<div class="songdetail">
 				<div class="song-text">{{v.name}}</div>
@@ -13,10 +13,15 @@
 
 <script setup>
 import Title from '@/components/common/Title.vue'
+import { useSongUrl } from '@/utils/api'
+import { useStore } from 'vuex'
 
 defineProps({
 	personalizedNewSong: Array,
 })
+
+let store = useStore()
+let playSong = async id => store.dispatch('player/play', id)
 </script>
 
 <style scoped>
