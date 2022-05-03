@@ -26,6 +26,7 @@ let userPlayerInit = _ => {
 		clearInterval(timer)
 	})
 }
+userPlayerInit()
 </script>
 
 <style>

@@ -9,9 +9,9 @@ const player = {
 	state: {
 		audio: new Audio(), //播放器
 		loopType: 0, //循环模式 0 单曲循环 1 列表循环 2随机播放
-		volume: localStorage.getItem(KEYS.volume)?.toInt() || 60, //音量
+		volume: +localStorage.getItem(KEYS.volume) || 60, //音量
 		showPlayList: false, //播放列表展示
-		playList: [],
+		playList: [], //播放列表
 		id: 0,
 		url: '',
 		songUrl: {},
@@ -31,6 +31,7 @@ const player = {
 		changList(state) {
 			state.showPlayList = !state.showPlayList
 		},
+		//切换播放
 		toggleLoop(state) {
 			state.loopType++
 			if (state.loopType > 2) state.loopType = 0
@@ -57,6 +58,19 @@ const player = {
 				state.audio.pause()
 			}
 		},
+		//静音切换
+		toggleMuted(state) {
+			state.muted = !state.muted
+			state.audio.muted = state.muted
+		},
+		//音量设置
+		setVolume(state, n) {
+			n = n > 100 ? 100 : n
+			n = n < 0 ? 0 : n
+			state.volume = n
+			state.audio.volume = n / 100
+			localStorage.setItem(KEYS.volume, n.toString())
+		},
 		playEnd() {},
 		//定时器
 		interval(state) {
@@ -72,7 +86,6 @@ const player = {
 		async play(ctx, id) {
 			if (ctx.state.id == id) return
 			let song = await useSongUrl(id)
-			console.log(song)
 			ctx.state.audio.src = song.url
 			ctx.state.isPlaying = false
 			ctx.state.audio
@@ -89,7 +102,6 @@ const player = {
 		// 歌曲详情
 		async songDetail(ctx) {
 			ctx.state.song = await useDetail(ctx.state.id)
-			console.log(ctx.state.song)
 		},
 	},
 }

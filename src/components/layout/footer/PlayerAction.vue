@@ -1,6 +1,6 @@
 <template>
 	<div class="action">
-		<span>00:00 / 00:00</span>
+		<span>{{useFormatDuring(currentTime)}} / {{useFormatDuring(duration)}}</span>
 		<IconPark :icon="TextMessage" size="18" :stroke-width="3" class="hover-text" title="歌词" />
 		<div class="playlist">
 			<IconPark @click="changeList" :icon="MusicList" size="18" :stroke-width="3" class="hover-text"
@@ -14,8 +14,12 @@
 import IconPark from '@/components/common/IconPark.vue'
 import { MusicList, TextMessage } from '@icon-park/vue-next'
 import { useStore } from 'vuex'
+import { computed } from 'vue'
+import { useFormatDuring } from '@/utils/number'
 
 let store = useStore()
+let currentTime = computed(_ => store.state.player.currentTime)
+let duration = computed(_ => store.state.player.duration)
 let changeList = _ => store.commit('player/changList')
 </script>
 
@@ -27,7 +31,7 @@ let changeList = _ => store.commit('player/changList')
 }
 .action span {
 	line-height: 0.5rem;
-	font-size: 10px;
+	font-size: 0.75rem;
 }
 .playlist {
 	display: flex;

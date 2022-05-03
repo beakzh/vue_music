@@ -1,8 +1,14 @@
-*, ::before, ::after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: #e5e7eb;
+:root {
+	--el-color-primary: #34d399;
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: #e5e7eb;
 }
 .hover-text:hover {
 	cursor: pointer;
@@ -12,9 +18,9 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-.mx-auto{
-    margin-left: auto;
-    margin-right: auto;
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
 }
 /* 
     推荐页全局样式
@@ -30,21 +36,21 @@ img {
 .song-white {
 	color: rgb(148 163 184);
 }
-.aspect-video{
-    aspect-ratio: 16 / 9;
-    border-radius: 0.5rem;
+.aspect-video {
+	aspect-ratio: 16 / 9;
+	border-radius: 0.5rem;
 }
-.aspect-square{
-    aspect-ratio: 1 / 1;
+.aspect-square {
+	aspect-ratio: 1 / 1;
 }
 
 /* 
     element-plus样式
 */
-.el-popover.popperOption{
+.el-popover.popperOption {
 	padding: unset !important;
 }
-.el-popover.popperOptions{
-    width: 50px;
-    min-width: 50px;
+.el-popover.popperOptions {
+	width: 50px;
+	min-width: 50px;
 }

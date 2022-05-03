@@ -23,6 +23,10 @@ let onSliderInput = _ => store.commit('player/onSliderInput')
 :deep(.el-slider) {
 	height: 30px;
 }
+:deep(.el-slider__bar) {
+	height: 2px;
+	background-color: var(--el-color-primary) !important;
+}
 :deep(.el-slider__button-wrapper) {
 	width: 4px;
 	height: 4px;
@@ -31,14 +35,15 @@ let onSliderInput = _ => store.commit('player/onSliderInput')
 	position: absolute;
 	width: 0px;
 	height: 0px;
-	top: 15.5px;
+	top: 13.5px;
 	left: 0px;
+	background-color: rgb(52 211 153) !important;
 }
 :deep(.el-slider__button:hover) {
 	width: 10px;
 	height: 10px;
 }
 :deep(.el-slider__runway) {
-	height: 4px;
+	height: 2px;
 }
 </style>
