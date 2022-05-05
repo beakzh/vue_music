@@ -12,7 +12,7 @@ let userPlayerInit = _ => {
 	let timer = null
 	watch(ended, ended => {
 		if (!ended) return
-		store.commit('player/playEnd')
+		store.dispatch('player/playEnd')
 	})
 	onMounted(_ => {
 		store.commit('player/init')

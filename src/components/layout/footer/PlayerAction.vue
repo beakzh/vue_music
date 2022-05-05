@@ -1,11 +1,11 @@
 <template>
 	<div class="action">
-		<span>{{useFormatDuring(currentTime)}} / {{useFormatDuring(duration)}}</span>
+		<span>{{ useFormatDuring(currentTime) }} / {{ useFormatDuring(duration) }}</span>
 		<IconPark :icon="TextMessage" size="18" :stroke-width="3" class="hover-text" title="歌词" />
 		<div class="playlist">
 			<IconPark @click="changeList" :icon="MusicList" size="18" :stroke-width="3" class="hover-text"
 				title="播放列表" />
-			<span>0</span>
+			<span>{{ playListCount }}</span>
 		</div>
 	</div>
 </template>
@@ -21,6 +21,7 @@ let store = useStore()
 let currentTime = computed(_ => store.state.player.currentTime)
 let duration = computed(_ => store.state.player.duration)
 let changeList = _ => store.commit('player/changList')
+let playListCount = computed(_ => store.state.player.playList.length)
 </script>
 
 <style scoped>

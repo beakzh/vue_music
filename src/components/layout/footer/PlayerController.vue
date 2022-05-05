@@ -2,9 +2,9 @@
 	<div class="controller">
 		<IconPark :icon="loopType==0?PlayOnce:loopType==1?LoopOnce:ShuffleOne" size="20" :stroke-width="3"
 			class="hover-text" @click="toggleLoop" />
-		<IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" />
+		<IconPark @click="prev" :icon="GoStart" size="28" theme="filled" class="hover-text" />
 		<IconPark :icon="isPause?PauseOne:Play" @click="togglePlay" size="45" theme="filled" class="hover-text btn-text" />
-		<IconPark :icon="GoEnd" size="28" class="hover-text" />
+		<IconPark @click="next" :icon="GoEnd" size="28" class="hover-text" />
 		<el-popover placement="top" :width="50" popper-class="popperOptions">
 			<template #reference>
 				<IconPark :icon="VolumeSmall" size="20" :stroke-width="3" class="hover-text" />
@@ -36,6 +36,9 @@ let toggleLoop = _ => store.commit('player/toggleLoop')
 
 let isPause = computed(_ => store.state.player.isPause)
 let togglePlay = _ => store.commit('player/togglePlay')
+
+let prev = _=> store.dispatch('player/prev')
+let next = _=> store.dispatch('player/next')
 </script>
 
 <style scoped>

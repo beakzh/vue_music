@@ -28,6 +28,16 @@ const player = {
 		init(state) {
 			state.audio.volume = state.volume / 100
 		},
+		//播放列表里面添加音乐
+		pushPlayList(state, v) {
+			if (v.replace) {
+				state.playList = v.list
+				return
+			}
+			v.list.forEach(v => {
+				if (!state.playList.find(song => song.id == v.id)) state.playList.push(v)
+			})
+		},
 		changList(state) {
 			state.showPlayList = !state.showPlayList
 		},
@@ -71,7 +81,6 @@ const player = {
 			state.audio.volume = n / 100
 			localStorage.setItem(KEYS.volume, n.toString())
 		},
-		playEnd() {},
 		//定时器
 		interval(state) {
 			if (state.isPlaying && !state.sliderInput) {
@@ -102,7 +111,27 @@ const player = {
 		// 歌曲详情
 		async songDetail(ctx) {
 			ctx.state.song = await useDetail(ctx.state.id)
+			ctx.commit('pushPlayList', { replace: false, list: [ctx.state.song] })
 		},
+		// 上一曲
+		prev(ctx) {
+			let playList = ctx.state.playList
+			let thisIndex = playList.findIndex(v => v.id == ctx.state.song.id)
+			let prevSong = {}
+			if (thisIndex == 0) prevSong = playList.last()
+			else prevSong = playList[thisIndex - 1]
+			ctx.dispatch('play', prevSong.id)
+		},
+		// 下一曲
+		next(ctx) {
+			let playList = ctx.state.playList
+			let thisIndex = playList.findIndex(v => v.id == ctx.state.song.id)
+			let prevSong = {}
+			if (thisIndex == playList.length - 1) prevSong = playList.first()
+			else prevSong = playList[thisIndex + 1]
+			ctx.dispatch('play', prevSong.id)
+		},
+		playEnd() {},
 	},
 }
 export default player
