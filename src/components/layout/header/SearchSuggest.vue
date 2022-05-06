@@ -2,7 +2,7 @@
 	<div v-for="(order, i1) in suggests?.order " :key="i1">
 		<div class="title-padd">{{getTitle(order)}}</div>
 		<template v-if="order == 'songs'">
-			<div v-for="(song, i2) in suggests.songs" :key="i2" class="list-flex">
+			<div v-for="(song, i2) in suggests.songs" :key="i2" class="list-flex" @click="play(song.id)">
 				<span class="text-xs text-color">{{song.name}} </span>
 				<span class="text-xs text-padd"> - {{song.artists[0]?.name}}</span>
 			</div>
@@ -29,9 +29,14 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex'
+
 defineProps({
 	suggests: Object,
 })
+
+let store = useStore()
+let play = id => store.dispatch('player/play', id)
 let getTitle = name => {
 	switch (name) {
 		case 'songs':

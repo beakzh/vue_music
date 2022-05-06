@@ -23,6 +23,7 @@ footer{
 .player {
 	display: flex;
 	justify-content: space-between;
+	flex-grow: 1;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
 }

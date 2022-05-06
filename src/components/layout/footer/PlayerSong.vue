@@ -3,7 +3,7 @@
 		<img :src="song.al?.picUrl || OpticalDisk" alt="">
 		<section>
 			<div class="flex-1">
-				<div v-if="songUrl.freeTrialInfo?.end > 0">试听</div>
+				<div v-if="songUrl.freeTrialInfo?.end > 0" class="audition">试听</div>
 				<span>{{song.name || '开源云音乐'}}</span>
 				<span> - {{ song.ar?.first().name || 'SmallRuralDog' }}</span>
 			</div>
@@ -34,6 +34,7 @@ let songUrl = computed(_ => store.state.player.songUrl)
 <style scoped>
 .song {
 	display: flex;
+	flex: 1 1 0%;
 }
 img {
 	width: 3rem;
@@ -60,5 +61,19 @@ section {
 	display: flex;
 	align-items: center;
 	gap: 0px 10px;
+}
+.audition {
+	--tw-scale-x: 0.75;
+	--tw-scale-y: 0.75;
+	font-size: 0.45rem;
+	line-height: 1rem;
+	padding-left: 0.125rem;
+	padding-right: 0.125rem;
+	color: rgb(255 255 255 / 1);
+	background-color: rgb(239 68 68 / 1);
+	border-radius: 0.25rem;
+	transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+		skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+		scaleY(var(--tw-scale-y));
 }
 </style>

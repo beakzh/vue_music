@@ -8,7 +8,7 @@
 		<el-scrollbar height="400px">
 			<div v-if="!keywords">
 				<div class="hot">热门搜索</div>
-				<div v-for="(v,i) in searchHot" :key="i" class="hot-list">
+				<div v-for="(v,i) in searchHot" :key="i" class="hot-list" @click="clickWord(v.searchWord)">
 					<div class="hot-title hover-text">
 						<span>{{i+1}}. </span>
 						<span>{{v.searchWord}}</span>
@@ -36,9 +36,13 @@ async function get() {
 
 let keywords = ref()
 let suggests = ref()
-let searchMusic =async () => {
+let searchMusic = async () => {
 	suggests.value = await useSearchSuggest(keywords.value)
-	console.log('suggest',suggests.value)
+}
+let clickWord = v => {
+	keywords.value = v
+	searchMusic()
+	showSearchView.value = true
 }
 
 onMounted(async _ => {

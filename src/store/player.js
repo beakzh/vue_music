@@ -124,14 +124,41 @@ const player = {
 		},
 		// 下一曲
 		next(ctx) {
-			let playList = ctx.state.playList
-			let thisIndex = playList.findIndex(v => v.id == ctx.state.song.id)
-			let prevSong = {}
-			if (thisIndex == playList.length - 1) prevSong = playList.first()
-			else prevSong = playList[thisIndex + 1]
-			ctx.dispatch('play', prevSong.id)
+			if (ctx.state.loopType == 2) ctx.dispatch('randomPlay')
+			else {
+				let playList = ctx.state.playList
+				let thisIndex = playList.findIndex(v => v.id == ctx.state.song.id)
+				let prevSong = {}
+				if (thisIndex == playList.length - 1) prevSong = playList.first()
+				else prevSong = playList[thisIndex + 1]
+				ctx.dispatch('play', prevSong.id)
+			}
 		},
-		playEnd() {},
+		//重新播放
+		rePlay({ state }) {
+			setTimeout(_ => {
+				state.currentTime = 0
+				state.audio.play()
+			}, 1500)
+		},
+		// 随机播放
+		randomPlay(ctx) {
+			ctx.dispatch('play', ctx.state.playList.sample().id)
+		},
+		playEnd(ctx) {
+			console.log('播放结束')
+			switch (ctx.state.loopType) {
+				case 0:
+					ctx.dispatch('rePlay')
+					break
+				case 1:
+					ctx.dispatch('next')
+					break
+				case 2:
+					ctx.dispatch('randomPlay')
+					break
+			}
+		},
 	},
 }
 export default player

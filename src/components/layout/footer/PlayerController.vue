@@ -46,6 +46,7 @@ let next = _=> store.dispatch('player/next')
 	display: flex;
 	align-items: center;
 	gap: 0 10px;
+	flex: 1 1 0%;
 }
 .btn-text {
 	color: rgb(52 211 153);
