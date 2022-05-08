@@ -57,6 +57,7 @@ onMounted(async _ => {
 :deep(.el-input__inner) {
 	border-radius: 1.5rem;
 	background-color: rgb(241 245 249);
+	font-size: 0.2rem;
 }
 .hot {
 	padding-left: 0.625rem;

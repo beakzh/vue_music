@@ -21,7 +21,7 @@ let onSliderInput = _ => store.commit('player/onSliderInput')
 
 <style scoped>
 :deep(.el-slider) {
-	height: 30px;
+	height: 10px;
 }
 :deep(.el-slider__bar) {
 	height: 2px;

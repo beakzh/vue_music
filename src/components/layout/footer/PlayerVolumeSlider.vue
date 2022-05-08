@@ -1,10 +1,10 @@
 <template>
 	<div class="volumne">
 		<div>
-			<el-slider v-model="volume" @input="setVolume" vertical height="150px" :show-tooltip="false" :max="100" :min="0"
-				size="small" />
+			<el-slider v-model="volume" @input="setVolume" vertical height="110px" :show-tooltip="false"
+				:max="100" :min="0" size="small" />
 		</div>
-		<div>{{ volume }}</div>
+		<div style="fontSize:0.2rem">{{ volume }}</div>
 		<div>
 			<IconPark :icon="VolumeSmall" size="16" theme="filled" class="hover-text" />
 		</div>
@@ -30,7 +30,7 @@ let setVolume = v => store.commit('player/setVolume', v)
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 15px 0;
+	gap: 10px 0;
 }
 :deep(.el-slider__runway) {
 	height: 10px;

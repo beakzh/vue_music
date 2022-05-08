@@ -38,6 +38,25 @@ const player = {
 				if (!state.playList.find(song => song.id == v.id)) state.playList.push(v)
 			})
 		},
+		//清空播放列表
+		clearSongList(state) {
+			state.showPlayList = false
+			state.id = 0
+			state.playList = []
+			state.url = ''
+			state.song = {}
+			state.songUrl = {}
+			state.isPlaying = false //是否播放中
+			state.isPause = false //是否暂停
+			state.sliderInput = false //是否正在拖动进度条
+			state.ended = false //是否播放结束
+			state.muted = false //是否静音
+			state.currentTime = 0 //当前播放时间
+			state.audio.load()
+			setTimeout(() => {
+				state.duration = 0
+			}, 500)
+		},
 		changList(state) {
 			state.showPlayList = !state.showPlayList
 		},
@@ -101,6 +120,7 @@ const player = {
 				.play()
 				.then(_ => {
 					ctx.state.isPlaying = true
+					ctx.state.isPause = false
 					ctx.state.id = song.id
 					ctx.state.songUrl = song
 					ctx.state.url = song.url

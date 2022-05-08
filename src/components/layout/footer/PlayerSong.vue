@@ -5,14 +5,15 @@
 			<div class="flex-1">
 				<div v-if="songUrl.freeTrialInfo?.end > 0" class="audition">试听</div>
 				<span>{{song.name || '开源云音乐'}}</span>
-				<span> - {{ song.ar?.first().name || 'SmallRuralDog' }}</span>
+				<span class="text-dc"> -
+					{{ song.ar?.first().name || 'SmallRuralDog' }}</span>
 			</div>
 			<div class="flex-2">
-				<IconPark :icon="Like" size="18" :stroke-width="3" class="hover-text" />
-				<IconPark :icon="DownTwo" size="18" :stroke-width="3" class="hover-text" />
-				<IconPark :icon="MoreTwo" size="18" :stroke-width="3" class="hover-text" />
+				<IconPark :icon="Like" size="18" :stroke-width="3" class="hover-text text-dc" />
+				<IconPark :icon="DownTwo" size="18" :stroke-width="3" class="hover-text text-dc" />
+				<IconPark :icon="MoreTwo" size="18" :stroke-width="3" class="hover-text text-dc" />
 				<el-badge :value="1000" :max="999" class="badge">
-					<IconPark :icon="Comment" size="18" :stroke-width="3" class="hover-text" />
+					<IconPark :icon="Comment" size="18" :stroke-width="3" class="hover-text text-dc" />
 				</el-badge>
 			</div>
 		</section>
