@@ -16,13 +16,13 @@ defineProps({
 </script>
 
 <style scoped>
-.swiper{
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
+.swiper {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
 }
 .swiper-wrapper {
 	position: relative;
@@ -30,20 +30,20 @@ defineProps({
 	height: 100%;
 	z-index: 1;
 	display: flex;
-    gap: 0 2rem;
+	gap: 0 2rem;
 	transition-property: transform;
 	box-sizing: content-box;
 }
 .swiper .swiper-slide {
 	padding-left: 0.625rem;
-    padding-right: 0.625rem;
+	padding-right: 0.625rem;
 }
 .swiper-slide {
 	flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition-property: transform;
 }
 @media (min-width: 1024px) {
 	.swiper .swiper-slide {
@@ -69,5 +69,8 @@ defineProps({
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
+}
+.banner-image:hover {
+	opacity: 0.8;
 }
 </style>
