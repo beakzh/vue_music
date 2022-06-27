@@ -4,13 +4,13 @@ import http from './http'
     header请求
 */
 
-//热门搜索
+// 热门搜索
 export async function useSearchHotDetail() {
-	const data = (await http.get('search/hot/detail')).data.data
+	const data = (await http.get('search/hot/detail')).data
 	return data
 }
 export async function useSearchSuggest(keywords) {
-	const result = (await http.get('search/suggest', { keywords })).data.result
+	const result = (await http.get('search/suggest', { keywords })).result
 	return result
 }
 
@@ -18,37 +18,55 @@ export async function useSearchSuggest(keywords) {
 	音乐播放
 */
 export async function useSongUrl(id) {
-	const data = (await http.get('/song/url', { id })).data.data
+	const data = (await http.get('/song/url', { id })).data
 	return data.first()
 }
 export async function useDetail(id) {
-	const { songs } = (await http.get('/song/detail', { ids: id })).data
+	const { songs } = await http.get('/song/detail', { ids: id })
 	return songs.first()
 }
 /*
-    discover请求
+    discover请求（推荐）
 */
 
 // 推荐轮播
 export async function useBanner() {
-	const banners = (await http.get('/banner', { type: 1 })).data.banners
+	const banners = (await http.get('/banner', { type: 1 })).banners
 	return banners
 }
 
 // 你的专属歌单
 export async function usePersonalized() {
-	const result = (await http.get('/personalized')).data.result
+	const result = (await http.get('/personalized')).result
 	return result
 }
 
 // 推荐新音乐
 export async function usePersonalizedNewSong() {
-	const result = (await http.get('/personalized/newsong')).data.result
+	const result = (await http.get('/personalized/newsong')).result
 	return result
 }
 
-//推荐MV
+// 推荐MV
 export async function usePersonalizedMv() {
-	const result = (await http.get('personalized/mv')).data.result
+	const result = (await http.get('personalized/mv')).result
+	return result
+}
+
+/* 
+	音乐馆
+*/
+
+/* 
+	精选
+*/
+// 独家放送
+export async function usePersonalizedPrivateContentList(limit = 10, offset = 0) {
+	const result = (await http.get('personalized/privatecontent/list', { limit, offset })).result
+	return result
+}
+// 推荐电台
+export async function usePersonalizedDjProgram () {
+	const result = (await http.get('personalized/djprogram')).result
 	return result
 }

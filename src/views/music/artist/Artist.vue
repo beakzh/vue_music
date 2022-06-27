@@ -1,11 +1,10 @@
 <template>
-	<div>
-        专辑
-	</div>
+  <div>歌手</div>
 </template>
 
 <script setup>
 </script>
 
 <style scoped>
+
 </style>

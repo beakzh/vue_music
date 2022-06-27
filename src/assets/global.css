@@ -27,16 +27,24 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 }
-.text-dc{
-	color:rgb(148 163 184 / 1)
+.text-dc {
+	color: rgb(148 163 184 / 1);
 }
-.w-10{
+.w-10 {
 	width: 2.5rem;
 }
-.text-xs{
+.text-xs {
 	font-size: 0.75rem;
-    line-height: 1rem;
-	color: rgb(51 65 85 / 1);;
+	line-height: 1rem;
+	color: rgb(51 65 85 / 1);
+}
+.truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mt-2 {
+	margin-top: 0.5rem;
 }
 /* 
     推荐页全局样式
@@ -59,7 +67,12 @@ img {
 .aspect-square {
 	aspect-ratio: 1 / 1;
 }
-
+/* 
+	音乐馆样式
+*/
+.bg-view {
+	background-color: rgb(255 255 255 / 1);
+}
 /* 
     element-plus样式
 */
@@ -69,4 +82,40 @@ img {
 .el-popover.popperOptions {
 	width: 50px;
 	min-width: 50px;
+}
+
+/* 
+	grid 布局
+*/
+.grid-2 {
+	display: grid;
+	grid: auto / repeat(2, 1fr);
+	gap: 1rem 1rem;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
+.grid-3 {
+	display: grid;
+	grid: auto / repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
+@media (min-width: 1024px) {
+	.grid-cols-4 {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+@media (min-width: 1024px) {
+	.grid-cols-5 {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
+}
+@media (min-width: 1024px) {
+	.grid-cols-6 {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+	}
 }

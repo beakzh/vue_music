@@ -5,9 +5,11 @@
 		<div v-if="!showCount" class="mask" :class="{'aspect-square':!video ,'aspect-video':video}">
 			<IconPark :icon="PlayOne" theme="filled" size="50" class="hover-text" />
 		</div>
-		<div v-if="showCount" class="play-count">
-			<IconPark :icon="video?Play:Headset" size="12" />
-			<span>{{ playCount.NumberFormat() }}</span>
+		<div v-if="showPlayCount">
+			<div v-if="showCount" class="play-count">
+				<IconPark :icon="video?Play:Headset" size="12" />
+				<span>{{ playCount.NumberFormat() }}</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -22,6 +24,7 @@ defineProps({
 	name: String,
 	playCount: Number,
 	video: Boolean,
+	showPlayCount: Boolean,
 })
 
 let showCount = ref(true)
