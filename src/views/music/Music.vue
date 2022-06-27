@@ -1,7 +1,7 @@
 <template>
 	<div class="music">
 		<h1>音乐馆</h1>
-		<el-affix :offset="56">
+		<el-affix :offset="49">
 			<div class="bg-view">
 			<el-tabs v-model="currentMenu" @tab-click="onTabClick">
 				<el-tab-pane v-for="(v, i) in menus" :label="v.label" :name="v.name" :key="i" />
