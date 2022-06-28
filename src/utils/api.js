@@ -66,7 +66,23 @@ export async function usePersonalizedPrivateContentList(limit = 10, offset = 0) 
 	return result
 }
 // 推荐电台
-export async function usePersonalizedDjProgram () {
+export async function usePersonalizedDjProgram() {
 	const result = (await http.get('personalized/djprogram')).result
+	return result
+}
+// 排行特色榜
+export async function useTopListDetail() {
+	const result = (await http.get('/toplist/detail')).list
+	return result
+}
+// 歌手搜索
+export async function userArtistList(pageData) {
+	const result = (await http.get('artist/list', {
+		type: pageData.type,
+		area: pageData.area,
+		initial: pageData.initial,
+		limit: pageData.limit,
+		offset: (pageData.page - 1) * pageData.limit,
+	})).artists
 	return result
 }
