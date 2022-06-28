@@ -86,3 +86,8 @@ export async function userArtistList(pageData) {
 	})).artists
 	return result
 }
+// 分类歌单list
+export async function usePlaylistHighqualityTags () {
+	const result = (await http.get('playlist/highquality/tags')).tags
+	return result
+}
