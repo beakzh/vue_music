@@ -11,6 +11,7 @@
 	--tw-skew-x: 0;
 	--tw-skew-y: 0;
 	--tw-text-opacity: 1;
+	--tw-bg-opacity: 1;
 	box-sizing: border-box;
 	border-width: 0;
 	border-style: solid;
@@ -120,6 +121,22 @@ img {
 .w-full {
 	width: 100%;
 }
+.button-dc {
+	display: flex;
+    height: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    background-color: rgb(230 230 230 / var(--tw-bg-opacity));
+    font-size: 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+.button-dc:hover {
+	color: rgb(16 185 129 / var(--tw-text-opacity));
+}
 /* 
     推荐页全局样式
 */
@@ -164,7 +181,7 @@ img {
 .grid-2 {
 	display: grid;
 	grid: auto / repeat(2, 1fr);
-	gap: 1rem 1rem;
+	gap: 1rem;
 	padding-left: 0.625rem;
 	padding-right: 0.625rem;
 }
@@ -185,6 +202,13 @@ img {
 .grid-5 {
 	display: grid;
 	grid: auto / repeat(5, minmax(0, 1fr));
+	gap: 1.25rem;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
+.grid-8 {
+	display: grid;
+	grid: auto / repeat(8, minmax(0, 1fr));
 	gap: 1.25rem;
 	padding-left: 0.625rem;
 	padding-right: 0.625rem;
@@ -219,14 +243,29 @@ img {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }
+@media (min-width: 1024px) {
+	.grid-cols-8 {
+		display: grid;
+		grid-template-columns: repeat(8, minmax(0, 1fr));
+	}
+}
 @media (min-width: 1536px) {
 	.grid-cols-10 {
 		display: grid;
 		grid-template-columns: repeat(10, minmax(0, 1fr));
 	}
 }
+@media (min-width: 1536px) {
+	.grid-cols-12 {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+}
 .gap-5 {
 	gap: 1.25rem;
+}
+.gap-2\5 {
+	gap: 0.625rem;
 }
 
 /* 

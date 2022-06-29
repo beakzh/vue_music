@@ -77,17 +77,24 @@ export async function useTopListDetail() {
 }
 // 歌手搜索
 export async function userArtistList(pageData) {
-	const result = (await http.get('artist/list', {
-		type: pageData.type,
-		area: pageData.area,
-		initial: pageData.initial,
-		limit: pageData.limit,
-		offset: (pageData.page - 1) * pageData.limit,
-	})).artists
+	const result = (
+		await http.get('artist/list', {
+			type: pageData.type,
+			area: pageData.area,
+			initial: pageData.initial,
+			limit: pageData.limit,
+			offset: (pageData.page - 1) * pageData.limit,
+		})
+	).artists
 	return result
 }
-// 分类歌单list
-export async function usePlaylistHighqualityTags () {
+// 分类歌单标签list
+export async function usePlaylistHighqualityTags() {
 	const result = (await http.get('playlist/highquality/tags')).tags
+	return result
+}
+// 精品分类歌单
+export async function useTopPlaylistHighquality() {
+	const result = await http.get('useTopPlaylistHighquality')
 	return result
 }
