@@ -40,12 +40,12 @@ header {
 .flex-2 {
 	display: flex;
 	align-items: center;
-	line-height: 0.5rem;
 	padding-right: 1.25rem;
 }
 .icon-button {
 	cursor: pointer;
 	padding: 0.5rem;
+	line-height: 0.5rem;
 }
 .icon-button:hover {
 	color: #2dd4bf;
