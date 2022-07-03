@@ -94,7 +94,7 @@ export async function usePlaylistHighqualityTags() {
 	return result
 }
 // 精品分类歌单
-export async function useTopPlaylistHighquality() {
-	const result = await http.get('useTopPlaylistHighquality')
+export async function useTopPlaylistHighquality(params) {
+	const result = await http.get('top/playlist/highquality', params)
 	return result
 }
